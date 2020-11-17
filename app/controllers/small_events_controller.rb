@@ -1,0 +1,2 @@
+class SmallEventsController < ApplicationController
+end

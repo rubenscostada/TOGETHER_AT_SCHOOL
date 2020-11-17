@@ -10,10 +10,73 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_17_112606) do
+ActiveRecord::Schema.define(version: 2020_11_17_121644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attendances", force: :cascade do |t|
+    t.boolean "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.text "message"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_chatrooms_on_user_id"
+  end
+
+  create_table "classes", force: :cascade do |t|
+    t.string "name"
+    t.integer "year"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "start_date"
+    t.string "end_date"
+    t.bigint "classe_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["classe_id"], name: "index_events_on_classe_id"
+  end
+
+  create_table "kids", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.bigint "classe_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["classe_id"], name: "index_kids_on_classe_id"
+  end
+
+  create_table "small_events", force: :cascade do |t|
+    t.bigint "kid_id", null: false
+    t.string "start_date"
+    t.string "end_date"
+    t.string "title"
+    t.text "description"
+    t.bigint "attendance_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["attendance_id"], name: "index_small_events_on_attendance_id"
+    t.index ["kid_id"], name: "index_small_events_on_kid_id"
+  end
+
+  create_table "user_kids", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "kid_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["kid_id"], name: "index_user_kids_on_kid_id"
+    t.index ["user_id"], name: "index_user_kids_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +86,21 @@ ActiveRecord::Schema.define(version: 2020_11_17_112606) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.boolean "admin"
+    t.bigint "classe_id", null: false
+    t.index ["classe_id"], name: "index_users_on_classe_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chatrooms", "users"
+  add_foreign_key "events", "classes", column: "classe_id"
+  add_foreign_key "kids", "classes", column: "classe_id"
+  add_foreign_key "small_events", "attendances"
+  add_foreign_key "small_events", "kids"
+  add_foreign_key "user_kids", "kids"
+  add_foreign_key "user_kids", "users"
+  add_foreign_key "users", "classes", column: "classe_id"
 end
