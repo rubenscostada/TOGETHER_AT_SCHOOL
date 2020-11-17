@@ -1,3 +1,3 @@
 class Attendance < ApplicationRecord
-  has_many :small_events
+  belongs_to :small_event
 end

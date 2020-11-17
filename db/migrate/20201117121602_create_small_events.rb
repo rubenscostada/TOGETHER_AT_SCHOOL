@@ -6,7 +6,7 @@ class CreateSmallEvents < ActiveRecord::Migration[6.0]
       t.string :end_date
       t.string :title
       t.text :description
-      t.references :attendance, null: false, foreign_key: true
+
 
       t.timestamps
     end

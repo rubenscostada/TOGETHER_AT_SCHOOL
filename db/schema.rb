@@ -17,8 +17,10 @@ ActiveRecord::Schema.define(version: 2020_11_17_121644) do
 
   create_table "attendances", force: :cascade do |t|
     t.boolean "status"
+    t.bigint "small_event_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["small_event_id"], name: "index_attendances_on_small_event_id"
   end
 
   create_table "chatrooms", force: :cascade do |t|
@@ -32,8 +34,10 @@ ActiveRecord::Schema.define(version: 2020_11_17_121644) do
   create_table "classes", force: :cascade do |t|
     t.string "name"
     t.integer "year"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_classes_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -62,10 +66,8 @@ ActiveRecord::Schema.define(version: 2020_11_17_121644) do
     t.string "end_date"
     t.string "title"
     t.text "description"
-    t.bigint "attendance_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["attendance_id"], name: "index_small_events_on_attendance_id"
     t.index ["kid_id"], name: "index_small_events_on_kid_id"
   end
 
@@ -89,18 +91,16 @@ ActiveRecord::Schema.define(version: 2020_11_17_121644) do
     t.string "first_name"
     t.string "last_name"
     t.boolean "admin"
-    t.bigint "classe_id", null: false
-    t.index ["classe_id"], name: "index_users_on_classe_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "attendances", "small_events"
   add_foreign_key "chatrooms", "users"
+  add_foreign_key "classes", "users"
   add_foreign_key "events", "classes", column: "classe_id"
   add_foreign_key "kids", "classes", column: "classe_id"
-  add_foreign_key "small_events", "attendances"
   add_foreign_key "small_events", "kids"
   add_foreign_key "user_kids", "kids"
   add_foreign_key "user_kids", "users"
-  add_foreign_key "users", "classes", column: "classe_id"
 end
