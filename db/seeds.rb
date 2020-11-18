@@ -1,19 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
+
 puts 'Deleting all classes'
 UserKid.destroy_all
 Kid.destroy_all
 Classe.destroy_all
 User.destroy_all
-
-
-
-
+Picture.destroy_all
 
 puts 'Creating fake teachers'
 user1 = User.create!(
@@ -164,7 +156,17 @@ userkid10 = UserKid.create!(user: mom5, kid: k5)
 userkid9 = UserKid.create!(user: dad5, kid: k6)
 userkid10 = UserKid.create!(user: mom5, kid: k6)
 
+puts 'Creating fake Class pictures'
 
+file1 = URI.open('https://images.unsplash.com/photo-1571210862729-78a52d3779a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80')
+file2 = URI.open('https://images.unsplash.com/photo-1540479859555-17af45c78602?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80')
+file3 = URI.open('https://images.unsplash.com/photo-1472162072942-cd5147eb3902?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60')
+file4 = URI.open('https://images.unsplash.com/photo-1516627145497-ae6968895b74?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=60')
+picture = Picture.create!(classe: class1)
+picture.photos.attach(io: file1, filename: 'filename1', content_type: 'image/jpg')
+picture.photos.attach(io: file2, filename: 'filename2', content_type: 'image/png')
+picture.photos.attach(io: file3, filename: 'filename3', content_type: 'image/png')
+picture.photos.attach(io: file4, filename: 'filename4', content_type: 'image/png')
 puts 'Done!!!'
 
 
