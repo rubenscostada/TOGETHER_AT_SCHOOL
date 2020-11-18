@@ -29,7 +29,7 @@ dad1 = User.create!(
   last_name: 'Tyson',
   email: 'mike@gmail.com',
   password: '123456',
-  admin: false
+  admin: false,
   )
 
 mom1 = User.create!(
