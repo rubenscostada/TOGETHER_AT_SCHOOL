@@ -12,7 +12,15 @@
     <a href="#pictures" ><i class="fas fa-image fa-lg"></i></a>
     <% end %>
     <a href="#chat"><i class="fas fa-comment-dots fa-lg"></i></a>
-    <a href="#diary"><i class="fas fa-book fa-lg"></i></a>
+    <% if !current_user.admin  %>
+      <%= link_to kids_path do %>
+      <div id="#diary"> <i class="fas fa-book fa-lg"></i> </div>
+      <% end %>
+      <% else %>
+      <%= link_to kids_path do %>
+      <div id="#diary"> <i class="fas fa-book fa-lg"></i> </div>
+      <% end %>
+    <% end %>
     <a href="#calendar"><i class="fas fa-calendar-alt fa-lg"></i></a>
   </div>
 

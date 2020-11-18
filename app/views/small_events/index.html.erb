@@ -1,1 +1,27 @@
-<h1>Diary</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 offset-2">
+      <h1>Diary</h1>
+       <h2> <%= @kid.first_name %> <%= @kid.last_name %> </h2>
+        <h2><%=Date.today%> </h2>
+        <div class="new_diary">
+          <%= simple_form_for [@kid, @small_event], url: kid_small_events_path do |f| %>
+          <%= f.input :date, as: :hidden %>
+          <%= f.input :start_nap_time_morning %>
+          <%= f.input :end_nap_time_morning %>
+
+          <%= f.input :lunch_description %>
+
+          <%= f.input :start_nap_time_afternoon %>
+          <%= f.input :end_nap_time_afternoon %>
+
+          <%= f.input :observation %>
+
+
+          <%= f.submit "Submit event", class: "btn btn-primary" %>
+          <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
