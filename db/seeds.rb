@@ -14,6 +14,7 @@ User.destroy_all
 
 
 
+
 puts 'Creating fake teachers'
 user1 = User.create!(
   first_name: 'Rubens',
@@ -21,6 +22,13 @@ user1 = User.create!(
   email: 'rubens.costa.da@gmail.com',
   password: '123456',
   admin: true
+  )
+
+puts 'Creating fake classes'
+class1 = Classe.create!(
+  name: 'Vertical Group 1',
+  year: 2020,
+  user: user1
   )
 
 puts 'Creating fake parents'
@@ -104,13 +112,6 @@ mom5 = User.create!(
   admin: false
   )
 
-puts 'Creating fake classes'
-class1 = Classe.create!(
-  name: 'Vertical Group 1',
-  year: 2020,
-  user: user1
-  )
-
 puts "creating kids"
 k1 = Kid.create!(
   first_name: "Joao",
@@ -162,6 +163,7 @@ userkid9 = UserKid.create!(user: dad5, kid: k5)
 userkid10 = UserKid.create!(user: mom5, kid: k5)
 userkid9 = UserKid.create!(user: dad5, kid: k6)
 userkid10 = UserKid.create!(user: mom5, kid: k6)
+
 
 puts 'Done!!!'
 
