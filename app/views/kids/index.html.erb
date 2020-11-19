@@ -1,19 +1,25 @@
+<%= link_to "log out", destroy_user_session_path , method: :delete %>
+
 <div class="container">
-        <h1>Select a child</h1>
-
-
-      <div class="row">
-
-        <% @kids.each do |kid|  %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 offset-2">
+      <div class="kid_avatars">
+      <h1>Select a child</h1>
+      <% @kids.each do |kid|  %>
+      <% if current_user.admin %>
         <div class="kid_card col-6 text-center mb-4">
         <%= link_to new_kid_small_event_path(kid) do %>
-
         <%= cl_image_tag kid.photo.key, width: 70, height: 70, crop: :fill, class:'img-fluid img-thumbnail', class: "avatar-large" %>
-
         <h2> <%= kid.first_name %> <%= kid.last_name %> </h2>
-        </div>
         <% end %>
+      <% else %>
+        <%= link_to kid_small_events_path(kid) do %>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
+          <h2> <%= kid.first_name %> <%= kid.last_name %> </h2>
         <% end %>
-      </div>
-    </div>
+        
+      <% end %>
+      <% end %>
+</div>
+</div>
 

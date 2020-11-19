@@ -1,6 +1,7 @@
 class SmallEventsController < ApplicationController
   def index
-    @small_events = SmallEvent.all
+    @kid = Kid.find(params[:kid_id])
+    @small_events = @kid.small_events
   end
 
   def new
@@ -10,10 +11,12 @@ class SmallEventsController < ApplicationController
 
   def create
     @small_event = SmallEvent.new(small_event_params)
+    @kid = Kid.find(params[:kid_id])
+    @small_event.kid = @kid
     if @small_event.save
-      redirect_to small_event_path(@small_event)
+      redirect_to kid_small_events_path(@kid)
     else
-      render 'new'
+      redirect_to new_kid_small_event_path(params[:kid_id])
     end
   end
 
@@ -32,5 +35,9 @@ class SmallEventsController < ApplicationController
 
   def small_event_params
     params.require(:small_event).permit(:start_nap_time_morning, :end_nap_time_morning, :lunch_description, :start_nap_time_afternoon, :end_nap_time_afternoon, :observation)
+  end
+
+  def kid_params
+    params.require(:small_event).permit(:kid_id)
   end
 end

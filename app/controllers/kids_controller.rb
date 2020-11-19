@@ -1,5 +1,9 @@
 class KidsController < ApplicationController
   def index
-   @kids = Kid.all
+    if current_user.admin
+      @kids = Kid.all
+    else
+      @kids = current_user.kids
+    end
   end
 end
