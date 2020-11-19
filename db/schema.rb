@@ -90,10 +90,13 @@ ActiveRecord::Schema.define(version: 2020_11_18_151238) do
 
   create_table "small_events", force: :cascade do |t|
     t.bigint "kid_id", null: false
-    t.string "start_date"
-    t.string "end_date"
-    t.string "title"
-    t.text "description"
+    t.date "date"
+    t.text "observation"
+    t.time "start_nap_time_morning"
+    t.time "end_nap_time_morning"
+    t.text "lunch_description"
+    t.time "start_nap_time_afternoon"
+    t.time "end_nap_time_afternoon"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["kid_id"], name: "index_small_events_on_kid_id"
