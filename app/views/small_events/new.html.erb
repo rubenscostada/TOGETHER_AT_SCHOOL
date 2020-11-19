@@ -1,25 +1,23 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-8 offset-2">
+    <div class="col-xs-12 col-sm-8">
       <h1>Diary</h1>
-       <h2> <%= @kid.first_name %> <%= @kid.last_name %> </h2>
-        <h2><%=Date.today%> </h2>
+       <h2> <%= @kid.first_name %> <%= @kid.last_name %> <%=Date.today%> </h2>
         <div class="new_diary">
           <%= simple_form_for [@kid, @small_event], url: kid_small_events_path do |f| %>
           <%= f.input :date, as: :hidden %>
-          <%= f.input :start_nap_time_morning %>
-          <%= f.input :end_nap_time_morning %>
+          <div class="nap-time"> <%= f.input :start_nap_time_morning, label: 'Morning Nap Started at', :include_blank => true %>
+          <%= f.input :end_nap_time_morning, label: 'Morning Nap Ended at', :include_blank => true %> </div>
+          <div class="teacher_input">
+          <%= f.input :lunch_description, label: 'Lunch of the day' %></div>
+          <div class="nap-time">
+          <%= f.input :start_nap_time_afternoon, label: 'Afternoon Nap started at', :include_blank => true %>
+          <%= f.input :end_nap_time_afternoon, label: 'Afternoon Nap Ended at', :include_blank => true %> </div>
 
-          <%= f.input :lunch_description %>
+          <div class="teacher_input"> <%= f.input :observation %> </div>
 
-          <%= f.input :start_nap_time_afternoon %>
-          <%= f.input :end_nap_time_afternoon %>
-
-          <%= f.input :observation %>
-
-
-          <%= f.submit "Submit event", class: "btn btn-primary" %>
+          <%= f.submit "Submit Diary", class: "btn btn-primary diary" %>
           <% end %>
 
       </div>
