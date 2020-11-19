@@ -2,6 +2,7 @@ require 'open-uri'
 
 puts 'Deleting all classes'
 UserKid.destroy_all
+SmallEvent.destroy_all
 Kid.destroy_all
 Classe.destroy_all
 User.destroy_all
