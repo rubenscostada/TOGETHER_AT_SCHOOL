@@ -1,23 +1,23 @@
-<div id="navbar">
-    <a href="#home" ><i class="fas fa-home fa-lg"></i></a>
+<div>
+<nav id="navbar">
+    <a href="#home" class="nav__link--active" ><i class="fas fa-home fa-lg " ></i></a>
     <% if user_signed_in? && current_user.admin == false %>
     <%= link_to class_pictures_path(current_user.kids.first.classe) do %>
-    <i class="fas fa-image fa-lg"></i>
+    <i class="fas fa-image fa-lg nav__link--active"></i>
     <% end %>
     <% elsif user_signed_in? && current_user.admin?%>
     <%= link_to new_class_picture_path(current_user.classes.last) do %>
-    <i class="fas fa-image fa-lg"></i>
+    <i class="fas fa-image fa-lg nav__link--active"></i>
     <% end %>
     <% else %>
-    <a href="#pictures" ><i class="fas fa-image fa-lg"></i></a>
+    <a href="#pictures" ><i class="fas fa-image fa-lg nav__link--active"></i></a>
     <% end %>
     <a href="#chat"><i class="fas fa-comment-dots fa-lg"></i></a>
-      <%= link_to kids_path do %>
+    <%= link_to kids_path do %>
       <div id="#diary"> <i class="fas fa-book fa-lg"></i> </div>
       <% end %>
-      
-    
     <a href="#calendar"><i class="fas fa-calendar-alt fa-lg"></i></a>
+  </nav>
   </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
