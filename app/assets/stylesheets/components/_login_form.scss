@@ -1,9 +1,20 @@
+.login-session .offset-4 {
+  margin: auto;
+
+}
+
+.container-login {
+  margin-top: 150px;
+}
+
 .form-login {
   background: white;
   padding: 10px 20px;
-  margin-top: 50px;
+  margin: auto;
   border-radius: 3px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+
   h2 {
     font-size: 25px;
     font-weight: bold;
