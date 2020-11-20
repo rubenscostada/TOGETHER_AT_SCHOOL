@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TOGETHERAtSchool</title>
+    <title>Together At School</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,10 +12,14 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar-top' %>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
 
-    <%= yield %>
+    <% if user_signed_in? == true %>
+        <%= render 'shared/navbar-top' %>
+        <%= render 'shared/navbar' %>
+        <%= render 'shared/flashes' %>
+        <%= yield %>
+    <% else %>
+        <%= yield %>
+    <% end %>
   </body>
 </html>
