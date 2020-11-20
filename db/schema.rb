@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_18_151238) do
+ActiveRecord::Schema.define(version: 2020_11_20_112542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,11 +45,8 @@ ActiveRecord::Schema.define(version: 2020_11_18_151238) do
   end
 
   create_table "chatrooms", force: :cascade do |t|
-    t.text "message"
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_chatrooms_on_user_id"
   end
 
   create_table "classes", force: :cascade do |t|
@@ -79,6 +76,16 @@ ActiveRecord::Schema.define(version: 2020_11_18_151238) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["classe_id"], name: "index_kids_on_classe_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "chatroom_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -128,10 +135,11 @@ ActiveRecord::Schema.define(version: 2020_11_18_151238) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "attendances", "small_events"
-  add_foreign_key "chatrooms", "users"
   add_foreign_key "classes", "users"
   add_foreign_key "events", "classes", column: "classe_id"
   add_foreign_key "kids", "classes", column: "classe_id"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "pictures", "classes", column: "classe_id"
   add_foreign_key "small_events", "kids"
   add_foreign_key "user_kids", "kids"
