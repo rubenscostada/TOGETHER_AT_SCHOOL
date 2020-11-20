@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   resources :kids do
     resources :small_events, only: [ :index, :new, :create]
   end
+
+  resources :chatrooms, only: [ :show, :index ] do
+    resources :messages, only: :create
+  end
 end
