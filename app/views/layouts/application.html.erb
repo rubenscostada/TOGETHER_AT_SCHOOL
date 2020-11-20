@@ -13,13 +13,24 @@
 
   <body>
 
-    <% if user_signed_in? == true %>
-        <%= render 'shared/navbar-top' %>
-        <%= render 'shared/navbar' %>
-        <%= render 'shared/flashes' %>
-        <%= yield %>
-    <% else %>
-        <%= yield %>
-    <% end %>
+  <%= if user_signed_in? == true %>                 
+  <div class="page-container">
+    <div>
+      <%= render 'shared/navbar-top' %>
+    </div> 
+    <div id="main-content">
+      <%= yield %>
+    </div>
+    <div>
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
+    </div>
+  </div>
+  <% else %>  
+  <div id="main-content">
+      <%= yield %>
+    </div>
+  <% end %>
+
   </body>
 </html>
