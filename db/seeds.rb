@@ -7,6 +7,7 @@ Kid.destroy_all
 Classe.destroy_all
 User.destroy_all
 Picture.destroy_all
+Chatroom.destroy_all
 
 puts 'Creating fake teachers'
 user1 = User.create!(
@@ -184,6 +185,11 @@ picture.photos.attach(io: file1, filename: 'filename1', content_type: 'image/jpg
 picture.photos.attach(io: file2, filename: 'filename2', content_type: 'image/png')
 picture.photos.attach(io: file3, filename: 'filename3', content_type: 'image/png')
 picture.photos.attach(io: file4, filename: 'filename4', content_type: 'image/png')
+
+puts 'Creating fake Chatrooms'
+chatroom1 = Chatroom.create!
+message1 = Message.create!(content: "hi", user: dad1, chatroom: chatroom1)
+message1 = Message.create!(content: "hi back", user: user1, chatroom: chatroom1)
 puts 'Done!!!'
 
 

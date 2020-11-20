@@ -1,25 +1,30 @@
-<div class="container">
+<div class="container-small-events-index">
   <div class="row">
-    <div class="col-xs-12 col-sm-8 offset-sm-4">
+    <div class="col-xs-12 col-sm-8 offset-sm-2">
       <div class="kid-event">
-        <h1>Events from:</h1>
+        <h1>Diary:</h1>
         <h2><%= @kid.first_name %> <%= @kid.last_name %></h2>
         <% if current_user.admin %>
         <%= link_to "new small event", new_kid_small_event_path(@kid)  %>
         <% end %>
-        <%= link_to "back to all kids", kids_path  %>
-        <% @small_events.each do |small_event|  %>
-          <h2><%=Date.today%> </h2>
-          <p>start nap time</p>
-          <p><%= small_event.start_nap_time_morning  %></p>
-          <p>end nap time</p>
-          <p><%= small_event.end_nap_time_morning  %></p>
-          <p><%= small_event.date  %></p>
-          <p>Observations</p>
-          <p><%= small_event.observation  %></p>
-          <hr>
-        <% end %>
-    </div>
+          <% @small_events.reverse.each do |small_event|  %>
+            <div class="kid-card-parent-view">
+              <h2><%=Date.today%> </h2>
+              <p><strong>Morning nap:</strong></p>
+              <p>From: <%= small_event.start_nap_time_morning.strftime("%I:%M") %> / To: <%= small_event.end_nap_time_morning.strftime("%I:%M")%></p>
+              <p></p>
+              <p><strong>Today's lunch:</strong></p>
+              <p><%= small_event.lunch_description %></p>
+              <p><strong>Afternoon nap:</strong></p>
+              <p>From: <%= small_event.start_nap_time_afternoon.strftime("%k:%M") %> / To: <%= small_event.end_nap_time_afternoon.strftime("%k:%M") %></p>
+              <p></p>
+              <p><strong>Observations:</strong></p>
+              <p><%= small_event.observation  %></p>
+            </div>
+              <hr>
+          <% end %>
+      </div>
+       <%= link_to "back to all kids", kids_path, class: "btn btn-outline-secondary"  %>
     </div>
   </div>
 </div>
