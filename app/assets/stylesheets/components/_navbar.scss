@@ -11,7 +11,7 @@ body {
 
 /* Place the navbar at the bottom of the page, and make it stick */
 #navbar {
-  background-color:#F4F4F4;
+  background-color:white;
   overflow: hidden;
   position: fixed;
   bottom: 0;
@@ -24,8 +24,12 @@ body {
   min-height: 100vh;
 }
 
+// body {
+//   padding-top: 50px;
+// }
+
 .nav__link--active {
-  color: #7FFFD4;
+  color: black;
 }
 
 
@@ -33,7 +37,7 @@ body {
 #navbar a {
   float: left;
   display: block;
-  color: black;
+  color: rgba(0, 0, 0, 0.5);
   text-align: center;
   padding: 16px 0px;
   text-decoration: none;
@@ -44,7 +48,7 @@ body {
 
 /* Change the color of links on hover */
 #navbar a:hover {
-  background-color: black;
+  background-color: none;
   color:#ddd;
 }
 
