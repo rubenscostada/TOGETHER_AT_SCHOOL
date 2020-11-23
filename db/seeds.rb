@@ -1,13 +1,16 @@
 require 'open-uri'
 
-puts 'Deleting all classes'
+puts 'Deleting everything'
 UserKid.destroy_all
 SmallEvent.destroy_all
 Kid.destroy_all
 Classe.destroy_all
-User.destroy_all
 Picture.destroy_all
+Message.destroy_all
 Chatroom.destroy_all
+User.destroy_all
+
+
 
 puts 'Creating fake teachers'
 user1 = User.create!(
@@ -106,7 +109,7 @@ mom5 = User.create!(
   admin: false
   )
 
-puts "creating kids"
+puts "Creating fake kids"
 k1 = Kid.create!(
   first_name: "Joao",
   last_name: "Otero",
@@ -188,8 +191,30 @@ picture.photos.attach(io: file4, filename: 'filename4', content_type: 'image/png
 
 puts 'Creating fake Chatrooms'
 chatroom1 = Chatroom.create!
-message1 = Message.create!(content: "hi", user: dad1, chatroom: chatroom1)
-message1 = Message.create!(content: "hi back", user: user1, chatroom: chatroom1)
+message1 = Message.create!(content: "You are now connected to the Joao's dad.", user: dad1, chatroom: chatroom1)
+message1 = Message.create!(content: "You are now connected to the Joao's mom.", user: mom1, chatroom: chatroom1)
+message1 = Message.create!(content: "You are now connected to the teacher", user: user1, chatroom: chatroom1)
+
+chatroom2 = Chatroom.create!
+message2 = Message.create!(content: "You are now connected to the Harry's dad.", user: dad2, chatroom: chatroom2)
+message2 = Message.create!(content: "You are now connected to the Harry's mom.", user: mom2, chatroom: chatroom2)
+message2 = Message.create!(content: "You are now connected to the teacher", user: user1, chatroom: chatroom2)
+
+chatroom3 = Chatroom.create!
+message3 = Message.create!(content: "You are now connected to the Stacey's dad.", user: dad3, chatroom: chatroom3)
+message3 = Message.create!(content: "You are now connected to the Stacey's mom.", user: mom3, chatroom: chatroom3)
+message3 = Message.create!(content: "You are now connected to the teacher", user: user1, chatroom: chatroom3)
+
+chatroom4 = Chatroom.create!
+message4 = Message.create!(content: "You are now connected to the Marcia's dad.", user: dad4, chatroom: chatroom4)
+message4 = Message.create!(content: "You are now connected to the Marcia's mom.", user: mom4, chatroom: chatroom4)
+message4 = Message.create!(content: "You are now connected to the teacher", user: user1, chatroom: chatroom4)
+
+chatroom5 = Chatroom.create!
+message5 = Message.create!(content: "You are now connected to the Fredrick's and Reda's dad.", user: dad5, chatroom: chatroom5)
+message5 = Message.create!(content: "You are now connected to the Fredrick's and Reda's mom.", user: mom5, chatroom: chatroom5)
+message5 = Message.create!(content: "You are now connected to the teacher", user: user1, chatroom: chatroom5)
+
 puts 'Done!!!'
 
 

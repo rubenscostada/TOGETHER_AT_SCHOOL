@@ -1,11 +1,11 @@
  <% if @chatrooms.present? %>
       <nav class="nav flex-column">
         <% @chatrooms.each do |chatroom| %>
-        <% chatroom.users.each do |user|%>
-          <% if user != current_user %>
-            <%= link_to user.first_name, chatroom_path(chatroom), class: "nav-link room-nav-link" %>
+          <% chatroom.unique_users.each do |user|%>
+            <% if user != current_user %>
+              <%= link_to "#{user.first_name} #{user.last_name}" , chatroom_path(chatroom), class: "nav-link room-nav-link" %>
+            <% end %>
           <% end %>
-        <% end %>
         <% end %>
       </nav>
     <% else %>

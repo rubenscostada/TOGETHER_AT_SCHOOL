@@ -30,11 +30,21 @@
     border-radius: 50%
   }
 
-  .message-content {
+  .other-user .message-content {
     padding: 5px;
     border: 1px solid $primary;
     border-radius: 5px;
-    background: lighten($primary, 10%);
+    border-color: #4e89ae;
+    background: #4e89ae;
+    color: $white;
+  }
+
+  .current-user .message-content {
+    padding: 5px;
+    border: 1px solid $primary;
+    border-radius: 5px;
+    border-color: #43658b;
+    background: #43658b;
     color: $white;
   }
 
