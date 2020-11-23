@@ -3,7 +3,11 @@
         <% @chatrooms.each do |chatroom| %>
           <% chatroom.unique_users.each do |user|%>
             <% if user != current_user %>
+              <% if current_user.admin? %>
               <%= link_to "#{user.first_name} #{user.last_name}" , chatroom_path(chatroom), class: "nav-link room-nav-link" %>
+              <% elsif user.admin? %>
+              <%= link_to "#{user.first_name} #{user.last_name}" , chatroom_path(chatroom), class: "nav-link room-nav-link" %>
+              <% end %>
             <% end %>
           <% end %>
         <% end %>
