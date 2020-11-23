@@ -1,11 +1,11 @@
 <div>
   <nav id="navbar">
       <% if action_name == "home" %>
-          <a href="/" ><i class="fas fa-home fa-lg nav__link--active" ></i>
+          <a href="/" ><i class="fas fa-home fa-lg nav__link--active" ></i></a>
       <% else %>
-          <a href="/" ><i class="fas fa-home fa-lg" ></i>
+          <a href="/" ><i class="fas fa-home fa-lg" ></i></a>
       <% end %>
-    
+
       <% if user_signed_in? && current_user.admin == false %>
         <%= link_to class_pictures_path(current_user.kids.first.classe) do %>
           <% if controller_name == "pictures" %>
@@ -25,14 +25,14 @@
       <% end %>
 
 
-      <a href="#chat"><i class="fas fa-comment-dots fa-lg"></i></a>
+      <a href="/chatrooms"><i class="fas fa-comment-dots fa-lg"></i></a>
       <% if controller_path == "kids" || controller_path == "small events" %>
         <a href="/kids"> <i class="fas fa-book fa-lg nav__link--active"></i> </a>
         <% else %>
           <a href="/kids"> <i class="fas fa-book fa-lg"></i> </a>
       <% end %>
-        
-        
+
+
       <a href="#calendar"><i class="fas fa-calendar-alt fa-lg"></i></a>
   </nav>
 

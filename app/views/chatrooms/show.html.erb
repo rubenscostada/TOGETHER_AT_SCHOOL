@@ -1,17 +1,59 @@
-<h1>#<%= @chatroom.id %></h1>
-<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-  <% @chatroom.messages.each do |message| %>
-    <div class="message-container" id="message-<%= message.id %>">
-      <i class="author">
-        <span><%= message.user.email %></span>
-        <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-      </i>
-      <p><%= message.content %></p>
-    </div>
-  <% end %>
-</div>
+<div class="container">
+<h1>
+  <%= @chatroom.id %>
+</h1>
 
-<%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-    <%= f.input :content, label: false, placeholder: "Message" %>
-    <%= f.submit "Send Message"%>
-  <% end %>
+<div class="row">
+  <div class="col-12 col-md-3">
+    <%= render partial: 'chatrooms' %>
+  </div>
+
+  <div class="col">
+    <div class="chat">
+      <% @messages.each do |message| %>
+        <div class="chat-message-container">
+          <div class="row no-gutters">
+            <div class="col-auto text-center">
+              <% if message.user.admin == false %>
+              <%= cl_image_tag message.user.kids.first.photo.key, width: 70, height: 70, crop: :fill, class: 'img-fluid img-thumbnail messenger-avatar'  %>
+              <% else %>
+              <img class="messenger-avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+              <% end %>
+            </div>
+
+            <div class="col">
+              <div class="message-content">
+                <p class="mb-1">
+                  <%= message.content %>
+                </p>
+
+                <div class="text-right">
+                  <small>
+                    <%= message.created_at %>
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <%= simple_form_for [ @chatroom, @message ], remote: true do |form| %>
+      <div class="input-group mb-3">
+        <%= form.input :content, as: :string,
+                                 wrapper: false,
+                                 label: false,
+                                 input_html: {
+                                   class: 'chat-input'
+                                 } %>
+        <div class="input-group-append">
+          <%= form.submit "Send", class: 'btn btn-primary chat-input' %>
+        </div>
+      </div>
+
+      <%= form.input :chatroom_id, as: :hidden %>
+    <% end %>
+  </div>
+</div>
+</div>
