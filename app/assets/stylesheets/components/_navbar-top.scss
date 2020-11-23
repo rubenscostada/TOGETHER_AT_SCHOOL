@@ -5,3 +5,20 @@
 .navbar-toggler i {
   color: black;
 }
+
+#navbartop {
+  background-color: white;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.page-container {
+  margin-top: 0px;
+}
+
+.container {
+  margin-top: 50px;
+}
