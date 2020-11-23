@@ -7,7 +7,7 @@
         <div class="new_diary">
           <%= simple_form_for [@kid, @small_event], url: kid_small_events_path do |f| %>
           <%= f.input :date, as: :hidden %>
-          <div class="nap-time"> <%= f.input :start_nap_time_morning, label: 'Morning Nap Started at', :include_blank => true %>
+          <div class="nap-time"> <%= f.input :start_nap_time_morning, :as => :string, label: 'Morning Nap Started at', :include_blank => true %>
           <%= f.input :end_nap_time_morning, label: 'Morning Nap Ended at', :include_blank => true %> </div>
           <div class="teacher_input">
           <%= f.input :lunch_description, label: 'Lunch of the day' %></div>

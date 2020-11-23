@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     resources :pictures, only: [ :index, :new, :create]
   end
 
+  resources :classes do
+  resources :events, only: [ :index, :new, :create]
+end
+
   resources :kids do
     resources :small_events, only: [ :index, :new, :create]
   end
@@ -12,4 +16,5 @@ Rails.application.routes.draw do
   resources :chatrooms, only: [ :show, :index ] do
     resources :messages, only: :create
   end
+
 end
