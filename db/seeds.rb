@@ -176,7 +176,7 @@ userkid9 = UserKid.create!(user: dad5, kid: k5)
 userkid10 = UserKid.create!(user: mom5, kid: k5)
 userkid9 = UserKid.create!(user: dad5, kid: k6)
 userkid10 = UserKid.create!(user: mom5, kid: k6)
-class1.kids << k1, k2, k3, k4, k5, k6
+class1.kids.push(k1, k2, k3, k4, k5, k6)
 class1.save
 
 puts 'Creating fake Class pictures'

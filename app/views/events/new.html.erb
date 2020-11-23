@@ -4,10 +4,7 @@
     <%= render partial: 'calendar' %>
   </div>
 </div>
-</div>
-
-
-<div>
+<div class="calendar-form">
   <%= simple_form_for [ @classe, @event ] do |f| %>
         <%= f.input :title %>
         <%= f.input :description %>
@@ -15,4 +12,6 @@
         <%= f.input :end_time, as: :datetime, required: false, input_html: {class: "datepicker"} %>
         <%= f.button :submit, class: 'btn btn-primary' %>
       <% end %>
+</div>
+
 </div>
