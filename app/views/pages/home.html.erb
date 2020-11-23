@@ -50,23 +50,23 @@
 
 <div class="container ">
   <div class="row">
-
     <div class="col-12">
-      <div class="card-trip" >
-      <div class="centered"> <h4><strong>Messages </strong> </h4> </div>
-        <img src="https://cdn.pixabay.com/photo/2016/04/14/08/40/newborn-1328454_1280.jpg" />
+      <div class="card-trip d-flex flex-column justify-content-between" id="card-messages" >
+          <div class="centered"><h4><strong>Messages</strong></h4></div>
+          <div class="notifications"> <p>Is my kid ok?</p> </div>
+          <div class="notifications"> <p>Did he sleep well?</p> </div>
       </div>
     </div>
 
     <div class="col-12">
-      <div class="card-trip">
-      <div class="centered"> <h4><strong>Calendar </strong> </h4> </div>
-        <img src="https://cdn.pixabay.com/photo/2016/03/07/09/34/kid-1241817_1280.jpg" />
+      <div class="card-trip d-flex flex-column justify-content-between" id="card-calendar">
+        <div >
+          <div class="centered"><h4><strong>Calendar</strong></h4></div>
+          <div class="calendar-box"><p style="font-size: 30px"></p><%= Date.today.day %><%= Date.today.strftime("%B") %></div>
+        </div>
       </div>
     </div>
-  
   </div>
-
 </div>
 </body>
 
