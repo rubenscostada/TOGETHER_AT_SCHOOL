@@ -26,6 +26,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import { objDiv } from '../components/scrollbottom.js';
 
 // Internal imports, e.g:
 import { initDatePickr } from '../plugins/flatpickr.js';
