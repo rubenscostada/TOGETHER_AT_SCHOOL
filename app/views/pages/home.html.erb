@@ -1,6 +1,5 @@
 
 <% if user_signed_in? && current_user.admin == false %>
-
 <div class="container">
   <div class="row">
 
@@ -37,11 +36,6 @@
 </div>
 
 <% elsif user_signed_in? && current_user.admin?%>
-
-<body class="container-home">
-<div class="container text-center" >
-  <h5>(teacher)</h5>
-</div>
 
 <div class="container ">
   <div class="row">
