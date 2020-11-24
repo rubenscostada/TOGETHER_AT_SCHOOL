@@ -27,6 +27,7 @@ require("channels")
 // External imports
 import "bootstrap";
 import flatpickr from "flatpickr";
+import { objDiv } from '../components/scrollbottom.js';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';

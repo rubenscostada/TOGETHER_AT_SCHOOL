@@ -1,17 +1,22 @@
  <% if @chatrooms.present? %>
-      <nav class="nav flex-column">
+  <div class="dropdown">
+    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButtonChatroom" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Choose chatroom
+    </button>
+      <div class="dropdown-menu messenger" aria-labelledby="dropdownMenuButton" id="dropdown-messenger">
         <% @chatrooms.each do |chatroom| %>
           <% chatroom.unique_users.each do |user|%>
             <% if user != current_user %>
               <% if current_user.admin? %>
-              <%= link_to "#{user.first_name} #{user.last_name}" , chatroom_path(chatroom), class: "nav-link room-nav-link" %>
+              <%= link_to "#{user.first_name} #{user.last_name}" , chatroom_path(chatroom), class: "dropdown-item" %>
               <% elsif user.admin? %>
-              <%= link_to "#{user.first_name} #{user.last_name}" , chatroom_path(chatroom), class: "nav-link room-nav-link" %>
+              <%= link_to "#{user.first_name} #{user.last_name}" , chatroom_path(chatroom), class: "dropdown-item" %>
               <% end %>
             <% end %>
           <% end %>
         <% end %>
-      </nav>
+      </div>
+  </div>
     <% else %>
       <div class="text-muted">
         The are no rooms

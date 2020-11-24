@@ -1,10 +1,10 @@
 <div class="container">
 <h1>
-    <% @chatroom.unique_users.each do |user|%>
-      <% if user != current_user %>
-        <%= user.first_name %>
+      <% if current_user.admin == false %>
+        <%= "Child: #{current_user.kids.first.first_name} #{current_user.kids.first.last_name}"%>
+      <% else %>
+        <%= "Child: #{@chatroom.users.where("admin ='false'").first.kids.first.first_name} #{@chatroom.users.where("admin ='false'").first.kids.first.last_name}" %>
       <% end %>
-    <% end %>
 </h1>
 
 <div class="row">
@@ -13,7 +13,7 @@
   </div>
 
   <div class="col">
-    <div class="chat">
+    <div class="chat" id="chat-container">
       <% @messages.each do |message| %>
 
       <% if message.user != current_user %>
@@ -85,7 +85,7 @@
                                    class: 'chat-input'
                                  } %>
         <div class="input-group-append">
-          <%= form.submit "Send", class: 'btn btn-primary chat-input' %>
+          <%= form.submit "Send", class: 'btn btn-primary chat-input', id: "chat-submit-button" %>
         </div>
       </div>
 
