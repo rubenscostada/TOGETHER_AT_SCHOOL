@@ -1,18 +1,26 @@
-.room-nav-link {
-  border: 1px solid lighten($primary, 40%);
-  background: lighten($primary, 45%);
+#dropdownMenuButtonChatroom {
+  width: 100%;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
 
-  & + .room-nav-link {
-    border-top: 0 none;
-  }
+#dropdownMenuButtonChatroom:hover {
+  background-color: #FF6804;
+  border: 1px solid #FF6804;
+}
+
+#dropdown-messenger {
+  width: 100%;
 }
 
 .chat {
   border: 1px solid lighten($secondary, 40%);
-  background: lighten($secondary, 50%);
+  background: lighten($secondary, 60%);
   height: 50vh;
   border-radius: 5px 5px 0 0;
   overflow-y: auto;
+  position: relative;
+  bottom:0;
 }
 
 .chat-input {
@@ -31,20 +39,18 @@
   }
 
   .other-user .message-content {
-    padding: 5px;
-    border: 1px solid $primary;
-    border-radius: 5px;
-    border-color: #4e89ae;
-    background: #4e89ae;
+    padding: 7px;
+    border: none;
+    border-radius: 15px;
+    background: rgb(200,200,200);
     color: $white;
   }
 
   .current-user .message-content {
-    padding: 5px;
-    border: 1px solid $primary;
-    border-radius: 5px;
-    border-color: #43658b;
-    background: #43658b;
+    padding: 7px;
+    border: none;
+    border-radius: 15px;
+    background: rgba(255, 103, 0, 0.6);
     color: $white;
   }
 
@@ -52,3 +58,5 @@
     margin-top: 10px;
   }
 }
+
+

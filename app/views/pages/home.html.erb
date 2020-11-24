@@ -1,52 +1,41 @@
 
 <% if user_signed_in? && current_user.admin == false %>
-
-<body>
-<%# <div class="container text-center" >
-   <h5>(parents)</h5>
-</div> %>
-
 <div class="container">
   <div class="row">
 
     <div class="col-6">
-      <div class="card-trip" >
-      <div class="centered"> <h4><strong>Photos </strong> </h4> </div>
-        <img src="https://cdn.pixabay.com/photo/2016/04/14/08/40/newborn-1328454_1280.jpg"  />
+      <div class="card-trip justify-content-between" id="card-calendar">
+        <div class="centered"><i class="fas fa-calendar fa-lg"></i><h4><strong>Calendar</strong></h4></div>
+          <div class="card-trip-content">
+            <div class="calendar-box"><p style="font-size: 30px"></p><%= Date.today.day %><%= Date.today.strftime("%b") %></div>
+            <div class="calendar-box-description"> <p><strong>title</strong></p> <p>description</p> </div>
+        </div>
       </div>
     </div>
     
 
     <div class="col-6">
-      <div class="card-trip">
-      <div class="centered"> <h4><strong>Messages </strong> </h4> </div>
-        <img src="https://cdn.pixabay.com/photo/2013/07/13/12/43/kids-160168_1280.png" />
-      </div>
-    </div>
-
-
-    <div class="col-12">
-      <div class="card-trip">
-      <div class="centered"> <h4><strong>Last News </strong> </h4> </div>
-        <img src="https://cdn.pixabay.com/photo/2016/03/07/09/34/kid-1241817_1280.jpg" />
+      <div class="card-trip" id="image">
+        <div class="centered"><i class="fas fa-image fa-lg"></i><h4><strong>Photos </strong> </h4> </div>
+          <img src="https://cdn.pixabay.com/photo/2016/04/14/08/40/newborn-1328454_1280.jpg"/>
+        </div>
       </div>
     </div>
   
   </div>
 
+    <div class="col-12">
+      <div class="card-trip d-flex flex-column justify-content-between" id="card-messages" >
+        <div class="centered"><i class="fas fa-comment-dots fa-lg"></i><h4><strong>Last messages</strong></h4></div>
+          <% current_user.messages.order("created_at").last(2).each do |message| %>
+            <div class="notifications"> <p><%= message.content %></p> </div>
+          <% end %>
+      </div>
+    </div>
+
 </div>
-</body>
 
 <% elsif user_signed_in? && current_user.admin?%>
-
-
-
-
-
-<body>
-<%# <div class="container text-center" >
-  <h5>(teacher)</h5>
-</div> %>
 
 <div class="container ">
   <div class="row">
@@ -59,16 +48,16 @@
     </div>
 
     <div class="col-12">
-      <div class="card-trip d-flex flex-column justify-content-between" id="card-calendar">
-        <div >
+      <div class="card-trip justify-content-between" id="card-calendar">
           <div class="centered"><h4><strong>Calendar</strong></h4></div>
-          <div class="calendar-box"><p style="font-size: 30px"></p><%= Date.today.day %><%= Date.today.strftime("%B") %></div>
-        </div>
+          <div class="card-trip-content">
+           <div class="calendar-box"><p style="font-size: 30px"></p><%= Date.today.day %><p><%= Date.today.strftime("%b") %></p></div>
+           <div class="calendar-box-description"> <p><strong>title</strong></p> <p>description</p> </div>
+          </div>
       </div>
     </div>
   </div>
 </div>
-</body>
 
 <% else %>
 <div class="container">
@@ -84,6 +73,5 @@
     <% end %>
 </div>
 </div>
-
 
 <% end %>

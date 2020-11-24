@@ -24,10 +24,12 @@
         <% end %>
       <% end %>
 
-      <% if controller_path == "chatrooms" || controller_path == "messages" %>
-        <a href="/chatrooms"> <i class="fas fa-comment-dots fa-lg nav__link--active"></i> </a>
+      <%= link_to chatroom_path(current_user.chatrooms.first) do %>
+        <% if controller_path == "chatrooms" || controller_path == "messages" %>
+          <i class="fas fa-comment-dots fa-lg nav__link--active"></i> </a>
         <% else %>
-          <a href="/chatrooms"> <i class="fas fa-comment-dots fa-lg"></i> </a>
+          <i class="fas fa-comment-dots fa-lg"></i> </a>
+        <% end %>
       <% end %>
 
       <% if controller_path == "kids" || controller_path == "small_events" %>
