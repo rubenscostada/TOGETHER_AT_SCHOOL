@@ -59,11 +59,12 @@
     </div>
 
     <div class="col-12">
-      <div class="card-trip d-flex flex-column justify-content-between" id="card-calendar">
-        <div >
+      <div class="card-trip justify-content-between" id="card-calendar">
           <div class="centered"><h4><strong>Calendar</strong></h4></div>
-          <div class="calendar-box"><p style="font-size: 30px"></p><%= Date.today.day %><%= Date.today.strftime("%B") %></div>
-        </div>
+          <div class="card-trip-content">
+           <div class="calendar-box"><p style="font-size: 30px"></p><%= Date.today.day %><p><%= Date.today.strftime("%b") %></p></div>
+            <div class="calendar-box-description"> <p><strong>title</strong></p> <p>description</p> </div>
+          </div>
       </div>
     </div>
   </div>
