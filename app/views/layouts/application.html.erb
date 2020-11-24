@@ -1,38 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-  
-  <div id="container-navbar">
     <title>Together At School</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-  
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-    </div>
   </head>
 
   <body>
 
   <% if user_signed_in? == true %>
-    <div class="page-container" >
-      <div>
         <%= render 'shared/navbar-top' %>
-      </div>
-      <div id="main-content">
         <%= yield %>
-      </div>
-    <div>
-      <%= render 'shared/navbar' %>
-      <%= render 'shared/flashes' %>
-    </div>
-    </div>
+        <%= render 'shared/navbar' %>
   <% else %>
-  <div id="main-content">
     <%= yield %>
-  </div>
   <% end %>
 
   </body>

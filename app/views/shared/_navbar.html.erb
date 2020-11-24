@@ -24,9 +24,13 @@
         <% end %>
       <% end %>
 
+      <% if controller_path == "chatrooms" || controller_path == "messages" %>
+        <a href="/chatrooms"> <i class="fas fa-comment-dots fa-lg nav__link--active"></i> </a>
+        <% else %>
+          <a href="/chatrooms"> <i class="fas fa-comment-dots fa-lg"></i> </a>
+      <% end %>
 
-      <a href="/chatrooms"><i class="fas fa-comment-dots fa-lg"></i></a>
-      <% if controller_path == "kids" || controller_path == "small events" %>
+      <% if controller_path == "kids" || controller_path == "small_events" %>
         <a href="/kids"> <i class="fas fa-book fa-lg nav__link--active"></i> </a>
         <% else %>
           <a href="/kids"> <i class="fas fa-book fa-lg"></i> </a>
@@ -50,7 +54,4 @@
         <% end %>
       <% end %>
   </nav>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </div>
