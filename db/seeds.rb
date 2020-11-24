@@ -4,6 +4,7 @@ puts 'Deleting everything'
 UserKid.destroy_all
 SmallEvent.destroy_all
 Kid.destroy_all
+Event.destroy_all
 Classe.destroy_all
 Picture.destroy_all
 Message.destroy_all

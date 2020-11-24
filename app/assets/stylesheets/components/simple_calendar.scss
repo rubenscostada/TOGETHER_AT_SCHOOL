@@ -1,8 +1,11 @@
+.calendar-view {
+}
+
 .simple-calendar {
   table {
     -webkit-border-horizontal-spacing: 0px;
     -webkit-border-vertical-spacing: 0px;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: white;
     border: 1px solid rgb(221, 221, 221);
     border-collapse: collapse;
     box-sizing: border-box;
@@ -58,7 +61,7 @@
   .wday-6 {}
 
   .today {
-    background: #FFFFC0
+    background: #FF9248;
   }
 
   .past {}
@@ -67,12 +70,19 @@
   .start-date {}
 
   .prev-month {
-    background: #DDD;
+    background: #FFD7B4;
   }
   .next-month {
-    background: #DDD;
+    background: #FFD7B4;
   }
   .current-month {}
 
   .has-events {}
+
+  .calendar-heading {
+    text-align: center;
+
+    a{
+    }
+  }
 }
