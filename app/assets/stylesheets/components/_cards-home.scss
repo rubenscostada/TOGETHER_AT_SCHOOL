@@ -40,6 +40,7 @@
   background: rgb(255,146,72);
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
+  font-size: 20px;
 }
 
 .calendar-box-description {
@@ -53,7 +54,7 @@
 }
 
 .card-trip > img {
-  height: 200px;
+  height: 100px;
   width: 100%;
   object-fit: cover;
 }
@@ -108,4 +109,12 @@
 #image img {
   object-fit: cover;
   width: 100%;
+  border-radius: 25px;
 }
+
+.logo {
+  padding-top: 30px;
+  padding-bottom: 40px;
+  margin-left: 50px;
+}
+
