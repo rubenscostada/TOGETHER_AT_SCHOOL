@@ -11,11 +11,14 @@
 
 #card-messages {
   background: rgb(255,146,72);
+  width: 100%;
 }
 
 #card-calendar {
   background: rgb(255,103,0);
 }
+
+
 
 .notifications {
   display: flex;
@@ -26,7 +29,7 @@
   border-radius: 30px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.05);
   background: white;
-  
+
   p {
     overflow: auto;
   }
@@ -117,4 +120,3 @@
   padding-bottom: 40px;
   margin-left: 50px;
 }
-

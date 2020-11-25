@@ -1,11 +1,9 @@
 
 <div class="container">
   <div class="row">
-
     <div class="logo">
       <%= image_tag "Logo3.png", class:"logo-class" %>
     </div>
-
     <div class="col-6">
       <div class="card-trip justify-content-between" id="card-calendar">
         <div class="centered"><i class="fas fa-calendar fa-lg"></i><h4><strong>Calendar</strong></h4></div>
@@ -15,7 +13,7 @@
         </div>
       </div>
     </div>
-    
+
 
     <div class="col-6">
       <div class="card-trip" id="image">
@@ -23,17 +21,14 @@
           <img src="https://cdn.pixabay.com/photo/2016/04/14/08/40/newborn-1328454_1280.jpg"/>
         </div>
       </div>
-    </div>
-  
-  </div>
 
     <div class="col-12">
-      <div class="card-trip d-flex flex-column justify-content-between" id="card-messages" >
+      <div class="card-trip" id="card-messages" >
         <div class="centered"><i class="fas fa-comment-dots fa-lg"></i><h4><strong>Last messages</strong></h4></div>
-          <% current_user.messages.order("created_at").last(2).each do |message| %>
+            <% @message_array.sort_by(&:created_at).last(2).each do |message| %>
             <div class="notifications"> <p><%= message.content %></p> </div>
-          <% end %>
+            <% end %>
       </div>
     </div>
-    
+  </div>
 </div>
