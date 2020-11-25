@@ -5,30 +5,63 @@
     <div class="logo">
       <%= image_tag "Logo2.png", class:"logo-class" %>
     </div>
-    
+
+  <% if user_signed_in? && current_user.admin == false %>
+
     <div class="col-6">
+      <%= link_to class_events_path(current_user.kids.first.classe), id: "calendar-link" do %>
       <div class="card-trip justify-content-between" id="card-calendar">
         <div class="centered"><i class="fas fa-calendar fa-lg"></i><h4><strong>Calendar</strong></h4></div>
           <div class="card-trip-content">
-            <div class="calendar-box"><%= Date.today.day %> <%= Date.today.strftime("%b") %></div>
-            <div class="calendar-box-description"> <p><strong>title</strong></p> <p>description</p> </div>
+            <div class="calendar-box"><%= "#{@events.first.start_time.strftime("%d")} #{@events.first.start_time.strftime("%b")}" %> </div>
+            <div class="calendar-box-description"> <p><strong> <%= @events.first.title %></strong></p> <p> <%= @events.first.description.truncate_words(5)  %> </p> </div>
         </div>
       </div>
+      <% end %>
+    </div>
+    <% else %>
+    <div class="col-6">
+      <%= link_to new_class_event_path(current_user.classes.last), id: "calendar-link" do %>
+      <div class="card-trip justify-content-between" id="card-calendar">
+        <div class="centered"><i class="fas fa-calendar fa-lg"></i><h4><strong>Calendar</strong></h4></div>
+          <div class="card-trip-content">
+            <div class="calendar-box"><%= "#{@events.first.start_time.strftime("%d")} #{@events.first.start_time.strftime("%b")}" %> </div>
+            <div class="calendar-box-description"> <p><strong> <%= @events.first.title %></strong></p> <p> <%= @events.first.description.truncate_words(5)  %> </p> </div>
+        </div>
+      </div>
+      <% end %>
     </div>
 
+  <% end %>
+  <% if user_signed_in? && current_user.admin == false %>
     <div class="col-6">
+      <%= link_to class_pictures_path(current_user.kids.first.classe), id: "image-link" do %>
       <div class="card-trip" id="image">
         <div class="centered"><i class="fas fa-image fa-lg"></i><h4><strong>Photos </strong> </h4> </div>
-          <img src="https://cdn.pixabay.com/photo/2016/04/14/08/40/newborn-1328454_1280.jpg"/>
+        <%= cl_image_tag @photo_array.sort_by(&:created_at).last.key, crop: :fill %>
         </div>
       </div>
+      <% end %>
+  <% else %>
+  
+    <div class="col-6">
+      <%= link_to new_class_picture_path(current_user.classes.last), id: "image-link" do %>
+      <div class="card-trip" id="image">
+        <div class="centered"><i class="fas fa-image fa-lg"></i><h4><strong>Photos </strong> </h4> </div>
+        <%= cl_image_tag @photo_array.sort_by(&:created_at).last.key, crop: :fill %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 
     <div class="col-12">
+      <%= link_to chatroom_path(current_user.chatrooms.first) do %>
       <div class="card-trip" id="card-messages" >
         <div class="centered"><i class="fas fa-comment-dots fa-lg"></i><h4><strong>Last messages</strong></h4></div>
             <% @message_array.sort_by(&:created_at).last(2).each do |message| %>
             <div class="notifications"> <p><%= message.content %></p> </div>
             <% end %>
+      <% end %>
       </div>
     </div>
   
