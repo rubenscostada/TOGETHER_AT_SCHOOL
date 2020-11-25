@@ -7,13 +7,13 @@
         <div class="new_diary">
           <%= simple_form_for [@kid, @small_event], url: kid_small_events_path do |f| %>
           <%= f.input :date, as: :hidden %>
-          <div class="nap-time"> <%= f.input :start_nap_time_morning, :as => :string, label: 'Morning Nap Started at', :include_blank => true %>
-          <%= f.input :end_nap_time_morning, label: 'Morning Nap Ended at', :include_blank => true %> </div>
+          <div class="nap-time"> <%= f.input :start_nap_time_morning, as: :time, html5: true, label: 'Morning Nap Started at'%>
+          <%= f.input :end_nap_time_morning, as: :time, html5: true, label: 'Morning Nap Ended at' %> </div>
           <div class="teacher_input">
           <%= f.input :lunch_description, label: 'Lunch of the day' %></div>
           <div class="nap-time">
-          <%= f.input :start_nap_time_afternoon, label: 'Afternoon Nap started at', :include_blank => true %>
-          <%= f.input :end_nap_time_afternoon, label: 'Afternoon Nap Ended at', :include_blank => true %> </div>
+          <%= f.input :start_nap_time_afternoon, as: :time, html5: true, label: 'Afternoon Nap started at' %>
+          <%= f.input :end_nap_time_afternoon, as: :time, html5: true, label: 'Afternoon Nap Ended at' %> </div>
 
           <div class="teacher_input"> <%= f.input :observation %> </div>
 
@@ -24,3 +24,4 @@
     </div>
   </div>
 </div>
+
