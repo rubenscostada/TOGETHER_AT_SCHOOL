@@ -2,3 +2,12 @@
   font-family: 'Raleway', 'sans-serif' !important;
   text-align: center !important;
 }
+
+.gallery {
+  overflow-y: auto;
+  max-height: 58vh;
+}
+
+#new_picture {
+  margin-top: 20px;
+}

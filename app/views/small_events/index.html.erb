@@ -1,12 +1,14 @@
-<div class="container-small-events-index">
+<div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-8 offset-sm-2">
       <div class="kid-event">
         <h1>Diary:</h1>
+        <hr class="mt-2 mb-3">
         <h2><%= @kid.first_name %> <%= @kid.last_name %></h2>
         <% if current_user.admin %>
         <%= link_to "new small event", new_kid_small_event_path(@kid)  %>
         <% end %>
+        <% if @small_events.present? %>
           <% @small_events.reverse.each do |small_event|  %>
             <div class="kid-card-parent-view">
               <h2><%=Date.today%> </h2>
@@ -23,6 +25,9 @@
             </div>
               <hr>
           <% end %>
+        <% else %>
+            <p>Diary for today has not been added yet</p>
+        <% end %>
       </div>
        <%= link_to "back to all kids", kids_path, class: "btn btn-outline-secondary"  %>
     </div>
