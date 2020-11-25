@@ -1,11 +1,13 @@
 
 <div class="container">
   <div class="row">
+    
     <div class="logo">
       <%= image_tag "Logo2.png", class:"logo-class" %>
     </div>
 
   <% if user_signed_in? && current_user.admin == false %>
+
     <div class="col-6">
       <%= link_to class_events_path(current_user.kids.first.classe), id: "calendar-link" do %>
       <div class="card-trip justify-content-between" id="card-calendar">
@@ -41,6 +43,7 @@
       </div>
       <% end %>
   <% else %>
+  
     <div class="col-6">
       <%= link_to new_class_picture_path(current_user.classes.last), id: "image-link" do %>
       <div class="card-trip" id="image">
@@ -61,5 +64,6 @@
       <% end %>
       </div>
     </div>
+  
   </div>
 </div>
