@@ -1,5 +1,4 @@
 
-<% if user_signed_in? && current_user.admin == false %>
 <div class="container">
   <div class="row">
 
@@ -34,44 +33,3 @@
     </div>
 
 </div>
-
-<% elsif user_signed_in? && current_user.admin?%>
-
-<div class="container ">
-  <div class="row">
-    <div class="col-12">
-      <div class="card-trip d-flex flex-column justify-content-between" id="card-messages" >
-          <div class="centered"><h4><strong>Messages</strong></h4></div>
-          <div class="notifications"> <p>Is my kid ok?</p> </div>
-          <div class="notifications"> <p>Did he sleep well?</p> </div>
-      </div>
-    </div>
-
-    <div class="col-12">
-      <div class="card-trip justify-content-between" id="card-calendar">
-          <div class="centered"><h4><strong>Calendar</strong></h4></div>
-          <div class="card-trip-content">
-           <div class="calendar-box"><p style="font-size: 30px"></p><%= Date.today.day %><p><%= Date.today.strftime("%b") %></p></div>
-           <div class="calendar-box-description"> <p><strong>title</strong></p> <p>description</p> </div>
-          </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<% else %>
-<div class="container">
-  <div class="row">
-
-    <div class="col-12">
-    <%= link_to new_user_session_path do %>
-      <div class="card-trip" >
-      <div class="centered"> <h4><strong>Login</strong> </h4> </div>
-        <img src="https://cdn.pixabay.com/photo/2016/02/19/10/14/boy-1209131_1280.jpg" />
-      </div>
-    </div>
-    <% end %>
-</div>
-</div>
-
-<% end %>
