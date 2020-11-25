@@ -6,6 +6,8 @@ class PagesController < ApplicationController
       redirect_to new_user_session_path
     end
     fetch_latest_messages
+    @events = Event.where("start_time > ?", DateTime.now).order("start_time ASC")
+    fetch_latest_photo
   end
 
   private
@@ -20,12 +22,15 @@ class PagesController < ApplicationController
       end
     end
     @message_array
-    # Iterate through chatrooms of current_user
-    # Get messages from chatroom that were not send from current_user
-    # order by created_at
-    # store in array
-    # get 2 most recent messages
-    # should return an array with 2 latest messages
+  end
+
+  def fetch_latest_photo
+    @photo_array = []
+    Picture.all.each do |picture|
+      picture.photos.each do |photo|
+        @photo_array << photo
+      end
+    end
+    @photo_array
   end
 end
-# .order("created_at").last(2)

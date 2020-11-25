@@ -9,6 +9,19 @@
   padding: 15px 20px;
 }
 
+a#calendar-link {
+  color: black;
+}
+.card-trip a {
+  text-decoration: none !important;
+  color: black;
+}
+
+a#image-link {
+  text-decoration: none !important;
+  color: black;
+}
+
 #card-messages {
   background: rgb(255,146,72);
   width: 100%;
@@ -54,7 +67,7 @@
   background: white;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
-  padding-top: 15px;
+  padding-top: 8px;
 }
 
 .card-trip > img {
