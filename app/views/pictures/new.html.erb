@@ -1,10 +1,10 @@
-<%= render 'shared/gallery-cards' %>
-
 <div class="container">
-<div class="picture-form">
+<%= render 'shared/gallery-cards' %>
+  <div class="picture-form">
   <%= simple_form_for [ @classe, @picture ] do |f| %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true }, label: false, class: "form-control-lg-file"  %>
-    <%= f.button :submit, class: 'btn btn-primary' %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }, label: false, class: "form-control"  %>
+    <%= f.button :submit, class: 'btn btn-primary', value: "Upload Photos" %>
   <% end %>
+  </div>
 </div>
-</div>
+
