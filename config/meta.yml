@@ -1,0 +1,5 @@
+meta_product_name: "Together At School"
+meta_title: "Together At School - Improve communication!"
+meta_description: "The perfect solutions for schools! Improve communication between parents and schools!"
+meta_image: "cover.jpg" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
