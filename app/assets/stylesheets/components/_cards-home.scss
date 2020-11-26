@@ -23,12 +23,12 @@ a#image-link {
 }
 
 #card-messages {
-  background: rgb(255,146,72);
+  background: rgba(255,188,0,0.8);
   width: 100%;
 }
 
 #card-calendar {
-  background: rgb(255,103,0);
+  background: rgba(255,127,40,0.8);
 }
 
 
@@ -54,7 +54,7 @@ a#image-link {
   width: 100%;
   text-align: center;
   font-size: 25px;
-  background: rgb(255,146,72);
+  background:  rgba(255,127,40,0.9);
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   font-size: 20px;
@@ -120,7 +120,7 @@ a#image-link {
 }
 
 #image {
-  background: rgb(255,179,138);
+  background: rgba(255,103,0,0.8);
 }
 
 #image img {
@@ -132,9 +132,14 @@ a#image-link {
 .logo {
   padding-top: 10px;
   padding-bottom: 40px;
-  margin-left: 50px;
 }
 
 .container h2 {
   color: black;
+}
+
+.logo-class {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

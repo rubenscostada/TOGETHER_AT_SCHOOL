@@ -3,6 +3,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-8">
       <h1>Diary</h1>
+      <hr class="mt-2 mb-3">
        <h2> <%= @kid.first_name %> <%= @kid.last_name %> <%=Date.today%> </h2>
         <div class="new_diary">
           <%= simple_form_for [@kid, @small_event], url: kid_small_events_path do |f| %>

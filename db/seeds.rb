@@ -15,9 +15,9 @@ User.destroy_all
 
 puts 'Creating fake teachers'
 user1 = User.create!(
-  first_name: 'Rubens',
-  last_name: 'Costa',
-  email: 'rubens.costa.da@gmail.com',
+  first_name: 'Emily',
+  last_name: 'Burns',
+  email: 'emily.burns@gmail.com',
   password: '123456',
   admin: true
   )
@@ -31,135 +31,135 @@ class1 = Classe.create!(
 
 puts 'Creating fake parents'
 dad1 = User.create!(
-  first_name: 'Mike',
-  last_name: 'Tyson',
-  email: 'mike@gmail.com',
+  first_name: 'Ricardo',
+  last_name: 'Otero',
+  email: 'rikas@gmail.com',
   password: '123456',
   admin: false,
   )
 
 mom1 = User.create!(
-  first_name: 'Mary',
-  last_name: 'Tyson',
-  email: 'mary@gmail.com',
+  first_name: 'Shannon',
+  last_name: 'Graybill',
+  email: 'shannon@gmail.com',
   password: '123456',
   admin: false
   )
 
 dad2 = User.create!(
-  first_name: 'John',
-  last_name: 'Smith',
-  email: 'john@gmail.com',
+  first_name: 'Patrick',
+  last_name: 'Pinto',
+  email: 'patrick@gmail.com',
   password: '123456',
   admin: false
   )
 
 mom2 = User.create!(
-  first_name: 'Elizabeth',
-  last_name: 'Smith',
+  first_name: 'Margarida',
+  last_name: 'Toureiro',
   email: 'elizabeth@gmail.com',
   password: '123456',
   admin: false
   )
 
 dad3 = User.create!(
-  first_name: 'William',
-  last_name: 'Jones',
-  email: 'william@gmail.com',
+  first_name: 'Diogo',
+  last_name: 'Telo',
+  email: 'diogo@gmail.com',
   password: '123456',
   admin: false
   )
 
 mom3 = User.create!(
-  first_name: 'Sarah',
-  last_name: 'Jones',
+  first_name: 'Mariana',
+  last_name: 'Marcelino',
   email: 'sarah@gmail.com',
   password: '123456',
   admin: false
   )
 
 dad4 = User.create!(
-  first_name: 'Thomas',
-  last_name: 'Taylor',
-  email: 'thomas@gmail.com',
+  first_name: 'João',
+  last_name: 'Sanches',
+  email: 'joao@gmail.com',
   password: '123456',
   admin: false
   )
 
 mom4 = User.create!(
-  first_name: 'Margaret',
-  last_name: 'Taylor',
-  email: 'margaret@gmail.com',
+  first_name: 'Rita',
+  last_name: 'Laia',
+  email: 'rita@gmail.com',
   password: '123456',
   admin: false
   )
 
 dad5 = User.create!(
-  first_name: 'George',
-  last_name: 'Brown',
-  email: 'george@gmail.com',
+  first_name: 'Andre',
+  last_name: 'Pires',
+  email: 'andre@gmail.com',
   password: '123456',
   admin: false
   )
 
 mom5 = User.create!(
-  first_name: 'Ann',
-  last_name: 'Brown',
-  email: 'ann@gmail.com',
+  first_name: 'Mathilde',
+  last_name: 'Bergue',
+  email: 'mathilde@gmail.com',
   password: '123456',
   admin: false
   )
 
 puts "Creating fake kids"
 k1 = Kid.create!(
-  first_name: "Joao",
-  last_name: "Otero",
+  first_name: "Sabrina",
+  last_name: "Bertol",
   classe: Classe.all.first
   )
-file1 = URI.open('https://images.unsplash.com/photo-1595601827380-a3f606ea4fba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
+file1 = URI.open('https://avatars3.githubusercontent.com/u/16783546?v=4')
 k1.photo.attach(io: file1, filename: 'filename1', content_type: 'image/jpg')
 
 k2 = Kid.create!(
-  first_name: "Harry",
-  last_name: "Vinton",
+  first_name: "Lola",
+  last_name: "Guérin",
   classe: Classe.all.first
   )
-file2 = URI.open('https://images.unsplash.com/photo-1585082041509-1baafb6fad23?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
+file2 = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1601319461/ga5qrp7dpxlsaivzggvg.jpg')
 k2.photo.attach(io: file2, filename: 'filename2', content_type: 'image/jpg')
 
 
 k3 = Kid.create!(
-  first_name: "Stacey",
-  last_name: "Ledgerwood",
+  first_name: "Vasco",
+  last_name: "Oliveira",
   classe: Classe.all.first
   )
-file3 = URI.open('https://images.unsplash.com/photo-1511933617088-859b414f00ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=670&q=80')
+file3 = URI.open('https://avatars2.githubusercontent.com/u/48258782?v=4')
 k3.photo.attach(io: file3, filename: 'filename3', content_type: 'image/jpg')
 
 
 k4 = Kid.create!(
-  first_name: "Marcia",
-  last_name: "Wildermuth",
+  first_name: "Margarida",
+  last_name: "Santos",
   classe: Classe.all.first
   )
-file4 = URI.open('https://images.unsplash.com/photo-1476638305939-a09cd694566c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
+file4 = URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1601319446/tz5bshczdfffqsrpltnh.jpg')
 k4.photo.attach(io: file4, filename: 'filename4', content_type: 'image/jpg')
 
 
 k5 = Kid.create!(
-  first_name: "Fredrick",
-  last_name: "Philippe",
+  first_name: "Tomas",
+  last_name: "Trzicky",
   classe: Classe.all.first
   )
-file5 = URI.open('https://images.unsplash.com/photo-1485423036251-8b2a2909899f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80')
+file5 = URI.open('https://avatars2.githubusercontent.com/u/72016265?v=4')
 k5.photo.attach(io: file5, filename: 'filename5', content_type: 'image/jpg')
 
 k6 = Kid.create!(
-  first_name: "Reda",
-  last_name: "Lauver",
+  first_name: "Julia",
+  last_name: "Kauffmann",
   classe: Classe.all.first
   )
-file6 = URI.open('https://images.unsplash.com/photo-1545241361-3378f8ea83b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1002&q=80')
+file6 = URI.open('https://avatars3.githubusercontent.com/u/67155294?v=4')
 k6.photo.attach(io: file6, filename: 'filename6', content_type: 'image/jpg')
 
 
@@ -220,7 +220,7 @@ message5 = Message.create!(content: "You are now connected to the teacher", user
 
 puts 'Creating fake events'
 event1 = Event.create!(title: "Field trip", description: "Bring your raincoat and boots, it's gonna be raining!", start_time: "Thu, 26 Nov 2020 09:00:00 +0000", end_time: "Thu, 26 Nov 2020 11:00:00 +0000", classe: class1)
-event2 = Event.create!(title: "Playground", description: "It's gonna be amazing", start_time: "Fri, 27 Nov 2020 10:00:00 +0000", end_time: "Fri, 27 Nov 2020 12:00:00 +0000", classe: class1)
+event2 = Event.create!(title: "Demo Day", description: "It's gonna be amazing", start_time: "Fri, 27 Nov 2020 10:00:00 +0000", end_time: "Fri, 27 Nov 2020 12:00:00 +0000", classe: class1)
 
 puts 'Done!!!'
 
