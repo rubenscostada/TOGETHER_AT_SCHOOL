@@ -7,72 +7,15 @@
       <% end %>
 </h1>
 
-<div class="row">
+<div class="row" id="chatbox">
   <div class="col-12 col-md-3">
     <%= render partial: 'chatrooms' %>
   </div>
 
   <div class="col">
-    <div class="chat" id="chat-container">
+    <div class="chat" id="messages" data-chatroom-id="<%= @chatroom.id %>">
       <% @messages.each do |message| %>
-
-      <% if message.user != current_user %>
-
-        <div class="chat-message-container">
-          <div class="row no-gutters">
-            <div class="col-auto text-center">
-              <% if message.user.admin == false %>
-              <%= cl_image_tag message.user.kids.first.photo.key, width: 70, height: 70, crop: :fill, class: 'img-fluid messenger-avatar'  %>
-              <% else %>
-              <img class="messenger-avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/arthur-littm"  />
-              <% end %>
-            </div>
-
-            <div class="col other-user">
-              <div class="message-content">
-                <p class="mb-1">
-                  <%= message.content %>
-                </p>
-
-                <div class="text-right">
-                  <small>
-                    <%= message.created_at %>
-                  </small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <% else %>
-
-        <div class="chat-message-container">
-          <div class="row no-gutters">
-            <div class="col current-user">
-              <div class="message-content">
-                <p class="mb-1">
-                  <%= message.content %>
-                </p>
-
-                <div class="text-left">
-                  <small>
-                    <%= message.created_at %>
-                  </small>
-                </div>
-              </div>
-            </div>
-            <div class="col-auto text-center">
-              <% if message.user.admin == false %>
-              <%= cl_image_tag message.user.kids.first.photo.key, width: 70, height: 70, crop: :fill, class: 'img-fluid messenger-avatar'  %>
-              <% else %>
-              <img class="messenger-avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
-              <% end %>
-            </div>
-
-          </div>
-        </div>
-
-        <% end %>
+         <%= render 'messages/message', message: message %>
       <% end %>
     </div>
 
@@ -82,15 +25,17 @@
                                  wrapper: false,
                                  label: false,
                                  input_html: {
+                                   autocomplete: 'off',
                                    class: 'chat-input'
                                  } %>
         <div class="input-group-append">
           <%= form.submit "Send", class: 'btn btn-primary chat-input', id: "chat-submit-button" %>
         </div>
       </div>
-
       <%= form.input :chatroom_id, as: :hidden %>
     <% end %>
   </div>
 </div>
 </div>
+<script type="text/javascript">var objDiv = document.getElementById("messages");
+objDiv.scrollTop = objDiv.scrollHeight;</script>
