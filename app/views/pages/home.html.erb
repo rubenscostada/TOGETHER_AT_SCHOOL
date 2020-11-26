@@ -52,7 +52,7 @@
 
     <div class="col-12">
       <div class="card-trip" id="card-messages" >
-        <div class="centered"><i class="fas fa-comment-dots fa-lg"></i><h4><strong>Last messages</strong></h4></div>
+        <div class="centered"><i class="fas fa-comment-dots fa-lg"></i><h4><strong>Latest Messages</strong></h4></div>
             <% @message_array.sort_by(&:created_at).last(2).each do |message| %>
               <%= link_to chatroom_path(message.chatroom) do %>
                 <div class="notifications"> <p><%= message.content %></p> </div>
