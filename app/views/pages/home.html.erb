@@ -8,11 +8,20 @@
     <div class="col-6">
       <%= link_to class_events_path(current_user.kids.first.classe), id: "calendar-link" do %>
       <div class="card-trip justify-content-between" id="card-calendar">
-        <div class="centered"><i class="fas fa-calendar fa-lg"></i><h4><strong>Calendar</strong></h4></div>
-          <div class="card-trip-content"
-            <div class="calendar-box"><%= "#{@events.first.start_time.strftime("%d")} #{@events.first.start_time.strftime("%b")}" %> </div>
-            <div class="calendar-box-description"> <p><strong> <%= @events.first.title %></strong></p> <p> <%= @events.first.description.truncate_words(5)  %> </p> </div>
+        <div class="centered">
+          <i class="fas fa-calendar fa-lg"></i><h4><strong>Calendar</strong></h4>
         </div>
+        <% if @events.present? %>
+          <div class="card-trip-content">
+            <div class="calendar-box"> <%= "#{@events.first.start_time.strftime("%d")} #{@events.first.start_time.strftime("%b")}" %> </div>
+            <div class="calendar-box-description"> <p><strong> <%= @events.first.title %></strong></p> <p> <%= @events.first.description.truncate_words(5)  %> </p> </div>
+          </div>
+        <% else %>
+          <div class="card-trip-content">
+            <div class="calendar-box"> <%= "#{DateTime.now.strftime("%d")} #{DateTime.now.strftime("%b")}" %> </div>
+            <div class="calendar-box-description"> <p><strong> No upcoming events </strong></p> </div>
+          </div>
+        <% end %>
       </div>
       <% end %>
     </div>
@@ -21,10 +30,17 @@
       <%= link_to new_class_event_path(current_user.classes.last), id: "calendar-link" do %>
       <div class="card-trip justify-content-between" id="card-calendar">
         <div class="centered"><i class="fas fa-calendar fa-lg"></i><h4><strong>Calendar</strong></h4></div>
+          <% if @events.present? %>
           <div class="card-trip-content">
-            <div class="calendar-box"><%= "#{@events.first.start_time.strftime("%d")} #{@events.first.start_time.strftime("%b")}" %> </div>
+            <div class="calendar-box"> <%= "#{@events.first.start_time.strftime("%d")} #{@events.first.start_time.strftime("%b")}" %> </div>
             <div class="calendar-box-description"> <p><strong> <%= @events.first.title %></strong></p> <p> <%= @events.first.description.truncate_words(5)  %> </p> </div>
-        </div>
+          </div>
+        <% else %>
+          <div class="card-trip-content">
+            <div class="calendar-box"> <%= "#{DateTime.now.strftime("%d")} #{DateTime.now.strftime("%b")}" %> </div>
+            <div class="calendar-box-description"> <p><strong> No upcoming events </strong></p> </div>
+          </div>
+        <% end %>
       </div>
       <% end %>
     </div>
