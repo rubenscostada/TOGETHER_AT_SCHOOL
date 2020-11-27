@@ -17,7 +17,7 @@ puts 'Creating fake teachers'
 user1 = User.create!(
   first_name: 'Emily',
   last_name: 'Burns',
-  email: 'emily.burns@gmail.com',
+  email: 'teacher@togetheratschool.eu',
   password: '123456',
   admin: true
   )
