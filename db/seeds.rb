@@ -219,8 +219,8 @@ message5 = Message.create!(content: "You are now connected to the Fredrick's and
 message5 = Message.create!(content: "You are now connected to the teacher", user: user1, chatroom: chatroom5)
 
 puts 'Creating fake events'
-event1 = Event.create!(title: "Field trip", description: "Bring your raincoat and boots, it's gonna be raining!", start_time: "Thu, 26 Nov 2020 09:00:00 +0000", end_time: "Thu, 26 Nov 2020 11:00:00 +0000", classe: class1)
-event2 = Event.create!(title: "Demo Day", description: "It's gonna be amazing", start_time: "Fri, 27 Nov 2020 10:00:00 +0000", end_time: "Fri, 27 Nov 2020 12:00:00 +0000", classe: class1)
+event1 = Event.create!(title: "Field trip", description: "Bring your raincoat and boots, it's gonna be raining!", start_time: "Sat, 28 Nov 2020 09:00:00 +0000", end_time: "Sat, 28 Nov 2020 11:00:00 +0000", classe: class1)
+event2 = Event.create!(title: "Demo Day", description: "It's gonna be amazing", start_time: "Fri, 27 Nov 2020 20:00:00 +0000", end_time: "Fri, 27 Nov 2020 21:00:00 +0000", classe: class1)
 
 puts 'Done!!!'
 
